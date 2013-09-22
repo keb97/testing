@@ -1,9 +1,0 @@
-<h1>Company Login Page</h1>
-
-<% if user_signed_in? %>
-	Show Company Profile
-<% else %>
-	<div>
-			<h1><%= link_to "Company Sign Up", new_company_user_registration_path %></h1>
-	</div>
-<% end %>	

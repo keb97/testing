@@ -1,9 +1,0 @@
-<h1>Admin Login Page</h1>
-
-<% if user_signed_in? %>
-	Show Admin Profile
-<% else %>
-	<div>
-			<h1><%= link_to "Admin Sign Up", new_admin_registration_path %></h1>
-	</div>
-<% end %>
