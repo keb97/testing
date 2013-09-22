@@ -1,9 +1,15 @@
 Testing::Application.routes.draw do
+  devise_for :users
+  devise_for :admins
+  devise_for :company_users
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root :to => 'static_pages#index'
+  get 'admin' => 'static_pages#admin'
+  get 'company' => 'static_pages#company_user'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
