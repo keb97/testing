@@ -6,6 +6,11 @@ gem 'rails', '4.0.0'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
+# Non default gems added
+gem 'devise'
+gem 'simple_form'
+gem 'cancan'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -26,6 +31,21 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+group :development do
+	### Below included so that generators will work properly
+	gem 'rspec-rails'
+	gem 'factory_girl_rails'
+	#gem 'faker'
+end	
+
+group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  #gem 'faker'
+  #gem 'json_spec'
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
