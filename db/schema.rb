@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130922223500) do
+ActiveRecord::Schema.define(version: 20130923142939) do
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(version: 20130922223500) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+
+  create_table "company_profiles", force: true do |t|
+    t.text     "description"
+    t.binary   "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "company_users", force: true do |t|
     t.string   "name"
@@ -81,5 +88,14 @@ ActiveRecord::Schema.define(version: 20130922223500) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "vehicles", force: true do |t|
+    t.string   "make"
+    t.string   "v_type"
+    t.string   "year"
+    t.string   "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

@@ -1,0 +1,14 @@
+<%= simple_form_for(@vehicle) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :make %>
+    <%= f.input :v_type %>
+    <%= f.input :year %>
+    <%= f.input :color %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
