@@ -1,10 +1,11 @@
-<nav>
-	<ul class="page_menu">
+<nav class="top-bar">
+	<section class="top-bar-section">
+	<ul class="left">
     <li><%= link_to "Home", root_path %></li>
 		<li><%= link_to "Admin Login Page", admin_path %></li>
 		<li><%= link_to "Company Login Page", company_path %></li>
 	</ul>
-	<ul class="sign_menu">
+	<ul class="top-bar-section right">
 		<% if user_signed_in? %>
 			<li><%= link_to "Edit Profile", edit_user_registration_path %></li>
 			<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
