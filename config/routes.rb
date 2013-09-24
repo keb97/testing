@@ -16,6 +16,8 @@ Testing::Application.routes.draw do
   root :to => 'static_pages#index'
   get 'admin' => 'static_pages#admin'
   get 'company' => 'static_pages#company_user'
+  get 'user_page' => 'static_pages#user_page'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
