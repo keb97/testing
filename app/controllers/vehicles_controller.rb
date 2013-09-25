@@ -11,7 +11,7 @@ class VehiclesController < ApplicationController
 
   # GET /vehicles/1
   # GET /vehicles/1.json
-  def 
+  def show
     @vehicle = Vehicle.find(params[:id])
   end
 
