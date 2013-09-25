@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20130922223500) do
 
   create_table "admins", force: true do |t|
-    t.string   "name"
+    t.string   "name",                   default: "", null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20130922223500) do
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "company_users", force: true do |t|
-    t.string   "name"
+    t.string   "name",                   default: "", null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20130922223500) do
   add_index "company_users", ["reset_password_token"], name: "index_company_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "name"
+    t.string   "name",                   default: "", null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
