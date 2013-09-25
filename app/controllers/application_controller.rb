@@ -7,6 +7,15 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
+
+  def after_sign_in_path_for(resource)
+    case resource
+    when User then '/user_page'
+    when Admin then '/admin'
+    when CompanyUser then '/company'
+    end    
+  end
+
   
   protected
 

@@ -1,7 +1,7 @@
 Testing::Application.routes.draw do
   resources :companies 
 
-  devise_for :users
+  devise_for :users 
   devise_for :admins
   devise_for :company_users
 
