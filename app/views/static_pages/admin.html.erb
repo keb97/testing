@@ -5,6 +5,7 @@
 	<%= link_to "Manage companies", "companies#index" %> 
 <% else %>
 	<div>
-			<h1><%= link_to "Admin Sign Up", new_admin_registration_path %></h1>
+	  <h1><%= link_to "Admin Sign Up", new_admin_registration_path %></h1>
+	  <h1><%= link_to "Admin Sign In", new_admin_session_path %></h1>
 	</div>
 <% end %>
