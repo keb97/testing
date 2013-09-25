@@ -1,0 +1,12 @@
+<%= simple_form_for(@company_profile) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :description %>
+    <%= f.input :photo %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

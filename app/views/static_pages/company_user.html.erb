@@ -1,7 +1,10 @@
-<h1>Company Login Page</h1>
+<h1>Company Home Page</h1>
 
 <% if user_signed_in? %>
-	Show Company Profile
+	<h2>Show Company Profile</h2>
+		  <p><%= current_company_user.company_id %></p>
+		  <p><%= current_company_user.company.name %></p>
+		  <p><%= link_to "Manage Vehicles", "vehicles#index" %></p>
 <% else %>
 	<div>
 			<h1><%= link_to "Company Sign Up", new_company_user_registration_path %></h1>

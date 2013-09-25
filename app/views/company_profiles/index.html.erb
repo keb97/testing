@@ -1,0 +1,29 @@
+<h1>Listing company_profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Photo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @company_profiles.each do |company_profile| %>
+      <tr>
+        <td><%= company_profile.description %></td>
+        <td><%= company_profile.photo %></td>
+        <td><%= link_to 'Show', company_profile %></td>
+        <td><%= link_to 'Edit', edit_company_profile_path(company_profile) %></td>
+        <td><%= link_to 'Destroy', company_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Company profile', new_company_profile_path %>
