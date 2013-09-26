@@ -15,6 +15,10 @@
 		<% end %>
 	</ul>
 	<ul class="top-bar-section right">
+
+
+
+
 		<% if admin_signed_in? %>
 			<li><%= link_to "Edit Profile", edit_admin_registration_path %></li>
 			<li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
@@ -25,7 +29,19 @@
 			<li><%= link_to "Edit Profile", edit_user_registration_path %></li>
 			<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 		<% else %>
+		  <% if params[:action] == 'company_user' %>
+            <li><%= link_to "Company Login", new_company_user_session_path %></li>
+          <% elsif params[:action] == 'user_page' %>
+            <li><%= link_to "Customer Login", new_user_session_path %></li>
+          <% elsif params[:action] == 'admin' %>
+            <li><%= link_to "Admin Login", new_admin_session_path %></li>
+          <% else %>
+          <% end %>
+
+
 		  
 		<% end %>
-	</ul>
+
+
+
 </nav>

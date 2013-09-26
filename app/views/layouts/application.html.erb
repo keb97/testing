@@ -28,14 +28,9 @@
     <%= render 'layouts/header' %>
     <%= yield %>
     <%= render 'layouts/footer' %>
-      <% if current_page?('/admin') %>
-      im an admin
-    <% elsif current_page?("/company") %>
-      im a company_user
-  <% elsif current_page?("/user_page") %>
-      im a user
-  <% else %>
-  <% end %>
+
+
+
 
     <%# javascript_include_tag "application" %>
   </body>
