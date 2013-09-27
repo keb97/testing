@@ -8,6 +8,14 @@ class ApplicationController < ActionController::Base
      redirect_to root_url, :alert => exception.message
    end
    
+   def after_sign_in_path_for(resource)
+     case resource
+     when User then '/'
+     when Admin then '/admin'
+     when CompanyUser then '/company'
+     end    
+   end
+
    protected
 
    def configure_permitted_parameters

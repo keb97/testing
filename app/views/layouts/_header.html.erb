@@ -1,32 +1,38 @@
 <nav class="top-bar">
 	<section class="top-bar-section">
-	<ul class="left">
-	  <li><%= link_to "Home", root_path %></li>
-	    	<% if user_signed_in? %>
-	    	  <li><%= link_to "User Home", user_path %></li>
-    	  <% elsif admin_signed_in? %>
-    	    <li><%= link_to "Admin Home", admin_path %></li>
-	    	<% elsif company_user_signed_in? %>
-	    	  <li><%= link_to "Company Home", company_path %></li>
-	    	<% else %>
-	    		<li><%= link_to "User Login", user_path %></li>
-				  <li><%= link_to "Admin Login", admin_path %></li>
-				  <li><%= link_to "Company Login", company_path %></li>
-				<% end %>
-	</ul>
-	<ul class="top-bar-section right">
+		<ul class="left">
+			<% if user_signed_in? %>
+	    	<li><%= link_to "Home Page", root_path %></li>
+	    <% elsif admin_signed_in? %>
+	    	<li><%= link_to "Home Page", root_path %></li>
+				<li><%= link_to "Admin Home Page", admin_path %></li>
+			<% elsif company_user_signed_in? %>
+				<li><%= link_to "Home Page", root_path %></li>
+				<li><%= link_to "Company Home Page", company_path %></li>
+			<% else %>
+				<li><%= link_to "Home Page", root_path %></li>
+				<li><%= link_to "Admin Home Page", admin_path %></li>
+				<li><%= link_to "Company Home Page", company_path %></li>
+			<% end %>	
+		</ul>
+		<ul class="right">			
 				<% if user_signed_in? %>
 					<li><%= link_to "Edit Profile", edit_user_registration_path %></li>
 					<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 				<% elsif admin_signed_in? %>
-						<li><%= link_to "Edit Profile", edit_admin_registration_path %></li>
-						<li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
+					<li><%= link_to "Edit Profile", edit_admin_registration_path %></li>
+					<li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>		
 				<% elsif company_user_signed_in? %>
 					<li><%= link_to "Edit Profile", edit_company_user_registration_path %></li>
 					<li><%= link_to "Logout", destroy_company_user_session_path, method: :delete %></li>
 				<% else %>
-				
-						<li><%= link_to "Login", new_user_session_path %></li>
-				<% end %>
-	</ul>
+					<% if params[:action] == '/' %>
+						<li><%= link_to "User Login", new_user_session_path %></li>
+					<% elsif params[:action] == '/admin' %>	
+						<li><%= link_to "Admin Login", new_admin_session_path %></li>
+					<% else params[:action] == '/company_user' %>
+						<li><%= link_to "Company Login", new_company_user_session_path %></li>
+					<% end %>	
+				<% end %>	
+		</ul>
 </nav>
