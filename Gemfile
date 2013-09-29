@@ -12,6 +12,7 @@ gem 'simple_form'
 gem 'cancan'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'zurb-foundation'
+gem "paperclip", "~> 3.0"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
