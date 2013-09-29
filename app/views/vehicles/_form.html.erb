@@ -11,7 +11,7 @@
       <%= f.hidden_field :company_id, value: current_company_user.company_id %>
     <% end %>
     <% if admin_signed_in? %>
-      <%= f.input :company_id, :collection => Company.find(:all), :label_method => :name,:value_method => :id,:label => "Company" ,:include_blank => false %>
+      <%= f.input :company_id, :collection => CompanyProfile.find(:all), :label_method => :name,:value_method => :id,:label => "Company" ,:include_blank => false %>
     <% end %>   
   </div>
 

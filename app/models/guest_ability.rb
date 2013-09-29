@@ -1,7 +1,7 @@
 class GuestAbility
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize
     can :read, :all
     # Define abilities for the passed in user here. For example:
     #
