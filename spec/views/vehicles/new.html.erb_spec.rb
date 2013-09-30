@@ -8,6 +8,17 @@ describe "vehicles/new" do
       :year => "MyString",
       :color => "MyString"
     ).as_new_record)
+    ))
+    controller.stub(current_admin: FactoryGirl.create(:admin,
+      :email => "person@example.com", 
+      :password => "password123",
+      :password_confirmation => "password123"
+    ))
+    controller.stub(current_company_user: FactoryGirl.create(:company_user, 
+      :email => "person2@example.com", 
+      :password => "password1123", 
+      :password_confirmation => "password1123"
+    ))
   end
 
   it "renders new vehicle form" do
