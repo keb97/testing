@@ -29,10 +29,12 @@ class VehiclesController < ApplicationController
   def create
     @vehicle = Vehicle.new(vehicle_params)
 
-    @vehicle.save
-    flash[:notice] = "The new vehicle has been created!"
-    render :action => "show"
-
+    if @vehicle.save
+      flash[:notice] = "The new vehicle has been created!"
+      render :action => "show"
+    else
+      render :action => "new"
+    end
     # respond_to do |format|
     #   if @vehicle.save
     #     format.html { redirect_to @vehicle, notice: 'Vehicle was successfully created.' }
@@ -47,10 +49,12 @@ class VehiclesController < ApplicationController
   # PATCH/PUT /vehicles/1
   # PATCH/PUT /vehicles/1.json
   def update
-    @vehicle.update_attributes(vehicle_params)
-    flash[:notice] = "New vehicle has been updated"
-    redirect_to @vehicle
-
+    if @vehicle.update_attributes(vehicle_params)
+      flash[:notice] = "New vehicle has been updated"
+      redirect_to @vehicle
+    else
+      render :action => "edit"
+    end  
     # respond_to do |format|
     #   if @vehicle.update(vehicle_params)
     #     format.html { redirect_to @vehicle, notice: 'Vehicle was successfully updated.' }
@@ -68,7 +72,7 @@ class VehiclesController < ApplicationController
     @vehicle.destroy
 
     flash[:notice] = "Vehicle has been deleted"
-    redirect_to "/"
+    redirect_to vehicles_url
 
     # respond_to do |format|
     #   format.html { redirect_to vehicles_url }

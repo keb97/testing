@@ -8,6 +8,12 @@ describe "vehicles/edit" do
       :year => "MyString",
       :color => "MyString"
     ))
+    @admin = assign(:admin, stub_model(Admin,
+        :make => "MyString",
+        :v_type => "MyString",
+        :year => "MyString",
+        :color => "MyString"
+    ))
   end
 
   it "renders the edit vehicle form" do

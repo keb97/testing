@@ -23,7 +23,7 @@ describe VehiclesController do
   # This should return the minimal set of attributes required to create a valid
   # Vehicle. As you add validations to Vehicle, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "make" => "MyString" } }
+  let(:valid_attributes) { { "make" => "MyString", "v_type" => "MyString", "year" => "MyString", "color" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -106,7 +106,7 @@ describe VehiclesController do
         # specifies that the Vehicle created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Vehicle.any_instance.should_receive(:update).with({ "make" => "MyString" })
+        Vehicle.any_instance.should_receive(:update_attributes).with({ "make" => "MyString" })
         put :update, {:id => vehicle.to_param, :vehicle => { "make" => "MyString" }}, valid_session
       end
 
