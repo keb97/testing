@@ -31,7 +31,7 @@ class VehiclesController < ApplicationController
 
     if @vehicle.save
       flash[:notice] = "The new vehicle has been created!"
-      render :action => "show"
+      redirect_to @vehicle
     else
       render :action => "new"
     end
