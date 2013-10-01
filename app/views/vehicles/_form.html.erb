@@ -8,10 +8,10 @@
     <%= f.input :color %>
 
     <% if company_user_signed_in? %>
-      <%= f.hidden_field :company_id, value: current_company_user.company_id %>
+      <%= f.hidden_field :company_profile_id, value: current_company_user.company_profile_id %>
     <% end %>
     <% if admin_signed_in? %>
-      <%= f.input :company_id, :collection => CompanyProfile.find(:all), :label_method => :name,:value_method => :id,:label => "Company" ,:include_blank => false %>
+      <%= f.input :company_profile_id, :collection => CompanyProfile.find(:all), :label_method => :name,:value_method => :id,:label => "Company" ,:include_blank => false %>
     <% end %>   
   </div>
 

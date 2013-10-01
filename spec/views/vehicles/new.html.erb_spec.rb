@@ -8,7 +8,6 @@ describe "vehicles/new" do
       :year => "MyString",
       :color => "MyString"
     ).as_new_record)
-    ))
     controller.stub(current_admin: FactoryGirl.create(:admin,
       :email => "person@example.com", 
       :password => "password123",
