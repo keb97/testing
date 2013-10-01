@@ -7,8 +7,7 @@ feature 'Signing in' do
 
   scenario 'Signing in via form' do
     visit '/'
-    click_link 'Customers'
-    click_link 'User Sign In'
+    click_link 'User Login'
     fill_in "Email", :with => @user.email
     fill_in "Password", :with => "test1234"
     click_button 'Sign in'

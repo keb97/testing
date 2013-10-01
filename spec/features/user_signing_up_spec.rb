@@ -3,7 +3,6 @@ require 'spec_helper'
 feature 'Signing up' do
   scenario 'Sign up is successful' do
     visit '/'
-    click_link 'Customers'
     click_link 'User Sign Up'
     fill_in "Email", :with => "newuser@example.com"
     fill_in "Password", :with => "test1234", :match => :prefer_exact
