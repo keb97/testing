@@ -1,8 +1,5 @@
 class Vehicle < ActiveRecord::Base
-	belongs_to :company
+	belongs_to :company_profile
 
-	validates :make, presence: true
-	validates :v_type, presence: true
-	validates :year, presence: true
-	validates :color, presence: true
+	validates_presence_of :make, :v_type, :year, :color
 end
