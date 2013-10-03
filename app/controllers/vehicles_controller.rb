@@ -4,25 +4,25 @@ class VehiclesController < ApplicationController
     #https://github.com/ryanb/cancan/issues/835
 
   # GET /vehicles
-  # GET /vehicles.json
-  def index
-    @vehicles = Vehicle.all
-  end
+  # # GET /vehicles.json
+  # def index
+  #   @vehicles = Vehicle.all
+  # end
 
-  # GET /vehicles/1
-  # GET /vehicles/1.json
-  def show
-    @vehicle = Vehicle.find(params[:id])
-  end
+  # # GET /vehicles/1
+  # # GET /vehicles/1.json
+  # def show
+  #   @vehicle = Vehicle.find(params[:id])
+  # end
 
-  # GET /vehicles/new
-  def new
-    @vehicle = Vehicle.new
-  end
+  # # GET /vehicles/new
+  # def new
+  #   #@vehicle = Vehicle.new
+  # end
 
-  # GET /vehicles/1/edit
-  def edit
-  end
+  # # GET /vehicles/1/edit
+  # def edit
+  # end
 
   # POST /vehicles
   # POST /vehicles.json
@@ -49,7 +49,7 @@ class VehiclesController < ApplicationController
   # PATCH/PUT /vehicles/1
   # PATCH/PUT /vehicles/1.json
   def update
-    if @vehicle.update_attributes(vehicle_params)
+    if @vehicle.update(vehicle_params)
       flash[:notice] = "New vehicle has been updated"
       redirect_to @vehicle
     else

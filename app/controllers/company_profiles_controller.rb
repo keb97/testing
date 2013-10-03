@@ -5,23 +5,23 @@ class CompanyProfilesController < ApplicationController
   
   # GET /company_profiles
   # GET /company_profiles.json
-  def index
-    @company_profiles = CompanyProfile.all
-  end
+  # def index
+  #  @company_profiles = CompanyProfile.all
+  # end
 
-  # GET /company_profiles/1
-  # GET /company_profiles/1.json
-  def show
-  end
+  # # GET /company_profiles/1
+  # # GET /company_profiles/1.json
+  # def show
+  # end
 
-  # GET /company_profiles/new
-  def new
-    @company_profile = CompanyProfile.new
-  end
+  # # GET /company_profiles/new
+  # def new
+  #  @company_profile = CompanyProfile.new
+  # end
 
-  # GET /company_profiles/1/edit
-  def edit
-  end
+  # # GET /company_profiles/1/edit
+  # def edit
+  # end
 
   # POST /company_profiles
   # POST /company_profiles.json
@@ -58,7 +58,7 @@ class CompanyProfilesController < ApplicationController
   def destroy
     @company_profile.destroy
     respond_to do |format|
-      format.html { redirect_to company_profiles_url }
+      format.html { redirect_to company_profiles_url, notice: 'Company profile was successfully deleted' }
       format.json { head :no_content }
     end
   end
@@ -71,6 +71,6 @@ class CompanyProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_profile_params
-      params.require(:company_profile).permit(:description, :photo)
+      params.require(:company_profile).permit(:name, :description, :photo)
     end
 end
