@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20130925125204) do
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "company_profiles", force: true do |t|
+    t.string   "name"
     t.text     "description"
     t.binary   "photo"
     t.datetime "created_at"

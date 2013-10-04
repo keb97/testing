@@ -2,6 +2,7 @@
 
 <% if admin_signed_in? %>
 	<h2>Show Admin Profile</h2>
+	<%= link_to "Add Company User", new_company_user_registration_path %><br><br>
 	<%= link_to "Manage Companies", "company_profiles#index" %><br><br>
 	<%= link_to "Manage Vehicles", "vehicles#index" %>
 <% else %>

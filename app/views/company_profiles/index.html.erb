@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
       <th>Description</th>
       <th>Photo</th>
       <th></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @company_profiles.each do |company_profile| %>
       <tr>
+        <td><%= company_profile.name %></td>
         <td><%= company_profile.description %></td>
         <td><%= company_profile.photo %></td>
         <td><%= link_to 'Show', company_profile %></td>
