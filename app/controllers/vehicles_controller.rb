@@ -49,7 +49,7 @@ class VehiclesController < ApplicationController
   # PATCH/PUT /vehicles/1
   # PATCH/PUT /vehicles/1.json
   def update
-    if @vehicle.update(vehicle_params)
+    if @vehicle.update_attributes(vehicle_params)
       flash[:notice] = "New vehicle has been updated"
       redirect_to @vehicle
     else

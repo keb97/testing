@@ -1,4 +1,8 @@
 Testing::Application.routes.draw do
+  resources :transactions
+
+  resources :addresses
+
   resources :company_profiles
 
   resources :vehicles

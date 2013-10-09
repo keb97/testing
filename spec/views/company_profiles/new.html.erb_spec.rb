@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "company_profiles/new" do
   before(:each) do
     assign(:company_profile, stub_model(CompanyProfile,
-      :name => "MyText",
+      :name => "MyString",
       :description => "MyText",
       :photo => ""
     ).as_new_record)

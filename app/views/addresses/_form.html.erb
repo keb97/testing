@@ -1,0 +1,19 @@
+<%= simple_form_for(@address) do |f| %>
+  <%= f.error_notification %>
+
+  <%# if user_signed_in? %>
+    <%#= f.input :address_type, :collection => [:primary, :secondary, :other], :prompt => "Pickup Address" %>
+  <%# end %> 
+
+  <div class="inputs">
+    <%= f.input :street %>
+    <%= f.input :city %>
+    <%= f.input :state %>
+    <%= f.input :zip %>
+    <%= f.input :country %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

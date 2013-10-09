@@ -1,0 +1,16 @@
+<%= simple_form_for(@transaction) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :PickupAddress %>
+    <%= f.input :DropoffAddress %>
+    <%= f.input :PickupDate %>
+    <%= f.input :PickupTime %>
+    <%= f.input :DropoffDate %>
+    <%= f.input :DropoffTime %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

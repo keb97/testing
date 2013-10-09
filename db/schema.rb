@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130925125204) do
+ActiveRecord::Schema.define(version: 20131009190547) do
+
+  create_table "addresses", force: true do |t|
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "admins", force: true do |t|
     t.string   "name",                   default: "", null: false
@@ -68,6 +78,28 @@ ActiveRecord::Schema.define(version: 20130925125204) do
   add_index "company_users", ["company_profile_id"], name: "index_company_users_on_company_profile_id", using: :btree
   add_index "company_users", ["email"], name: "index_company_users_on_email", unique: true, using: :btree
   add_index "company_users", ["reset_password_token"], name: "index_company_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "locatables", force: true do |t|
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.integer  "address_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "locatables", ["address_id"], name: "index_locatables_on_address_id", using: :btree
+  add_index "locatables", ["owner_id", "owner_type"], name: "index_locatables_on_owner_id_and_owner_type", using: :btree
+
+  create_table "transactions", force: true do |t|
+    t.string   "PickupAddress"
+    t.string   "DropoffAddress"
+    t.date     "PickupDate"
+    t.time     "PickupTime"
+    t.date     "DropoffDate"
+    t.time     "DropoffTime"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name",                   default: "", null: false
