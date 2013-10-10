@@ -1,9 +1,16 @@
 <%= simple_form_for(@address) do |f| %>
   <%= f.error_notification %>
 
-  <%# if user_signed_in? %>
-    <%#= f.input :address_type, :collection => [:primary, :secondary, :other], :prompt => "Pickup Address" %>
-  <%# end %> 
+  <% if admin_signed_in? %>
+    <%= f.hidden_field :owner_type value: "Admin" %>
+  <% elsif company_user_signed_in? %>
+    <%= f.hidden_field :owner_type value: "Company User" %>
+  <% else %>
+    <%= f.input :address_type, :collection => [:primary, :secondary, :other], :prompt => "Pickup Address" %>
+    <%= f.hidden_field :owner_type value: "User" %>
+  <% end %>
+  
+  <%= f.hidden_field :owner_id value: current_user.id %>
 
   <div class="inputs">
     <%= f.input :street %>
