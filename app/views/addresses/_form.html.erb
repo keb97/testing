@@ -2,16 +2,17 @@
   <%= f.error_notification %>
 
   <% if admin_signed_in? %>
-    <%= f.hidden_field :owner_type value: "Admin" %>
+    <%= f.hidden_field :owner_type, value: "Admin" %>
+    <%= f.hidden_field :owner_id, value: current_admin.id %>
   <% elsif company_user_signed_in? %>
-    <%= f.hidden_field :owner_type value: "Company User" %>
+    <%= f.hidden_field :owner_type, value: "Company User" %>
+    <%= f.hidden_field :owner_id, value: current_company_user.id %>
   <% else %>
-    <%= f.input :address_type, :collection => [:primary, :secondary, :other], :prompt => "Pickup Address" %>
-    <%= f.hidden_field :owner_type value: "User" %>
+    <%= f.input :kind, :collection => [ "Primary", "Secondary", "Other" ], :prompt => "Pickup Address" %>
+    <%= f.hidden_field :owner_type, value: "User" %>
+    <%= f.hidden_field :owner_id, value: current_user.id %>
   <% end %>
   
-  <%= f.hidden_field :owner_id value: current_user.id %>
-
   <div class="inputs">
     <%= f.input :street %>
     <%= f.input :city %>

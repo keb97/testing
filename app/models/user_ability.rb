@@ -3,5 +3,6 @@ class UserAbility
 
   def initialize(user)
     can :read, :all
+    can :manage, Address
   end
 end

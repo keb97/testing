@@ -1,7 +1,7 @@
 class CreateAddresses < ActiveRecord::Migration
   def change
     create_table :addresses do |t|
-      t.string :address_type
+      t.string :kind
       t.string :street
       t.string :city
       t.string :state
