@@ -7,7 +7,9 @@ Testing::Application.routes.draw do
 
   resources :vehicles
 
-  devise_for :users
+  devise_for :users do
+    resources :addresses
+  end  
   devise_for :admins
   devise_for :company_users
   
