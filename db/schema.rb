@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20131009190547) do
 
   create_table "addresses", force: true do |t|
+    t.string   "kind"
     t.string   "street"
     t.string   "city"
     t.string   "state"
