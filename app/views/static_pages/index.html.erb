@@ -2,7 +2,12 @@
 
 <% if user_signed_in? %>
 	Show User Profile
-	<%= link_to "Manage Addresses", "addresses#index" %>
+	<%= simple_nested_form_for @user do |f| %>
+		<%= f.error_notification %>
+			<%= f.fields_for :addresses do |builder| %>
+				<%= render 'addresses/address', f: builder %>
+			<% end %>	
+	<% end %>	
 <% else %>
 	<div>
 			<h1><%= link_to "User Sign Up", new_user_registration_path %></h1>
