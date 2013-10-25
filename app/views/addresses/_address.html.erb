@@ -1,8 +1,9 @@
 <fieldset>
-	<%= f.label :kind, "#{:kind} Pickup Address" %><br>
+	<%= f.input :kind %>
 	<%= f.input :street %>
 	<%= f.input :city %>
 	<%= f.input :state %>
 	<%= f.input :zip %>
 	<%= f.input :country%>
+	<%= f.link_to_remove "Remove an address" %>
 </fieldset>

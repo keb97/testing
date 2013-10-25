@@ -5,13 +5,13 @@ describe "vehicles/index" do
     assign(:vehicles, [
       stub_model(Vehicle,
         :make => "Make",
-        :v_type => "V Type",
+        :kind => "V Type",
         :year => "Year",
         :color => "Color"
       ),
       stub_model(Vehicle,
         :make => "Make",
-        :v_type => "V Type",
+        :kind => "V Type",
         :year => "Year",
         :color => "Color"
       )

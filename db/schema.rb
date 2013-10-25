@@ -98,9 +98,15 @@ ActiveRecord::Schema.define(version: 20131009190547) do
     t.time     "PickupTime"
     t.date     "DropoffDate"
     t.time     "DropoffTime"
+    t.integer  "vehicle_id"
+    t.integer  "user_id"
+    t.integer  "company_profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "transactions", ["company_profile_id"], name: "index_transactions_on_company_profile_id", using: :btree
+  add_index "transactions", ["user_id"], name: "index_transactions_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name",                   default: "", null: false
@@ -127,7 +133,7 @@ ActiveRecord::Schema.define(version: 20131009190547) do
 
   create_table "vehicles", force: true do |t|
     t.string   "make"
-    t.string   "v_type"
+    t.string   "kind"
     t.string   "year"
     t.string   "color"
     t.binary   "image"

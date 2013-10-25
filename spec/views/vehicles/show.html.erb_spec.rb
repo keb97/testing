@@ -4,7 +4,7 @@ describe "vehicles/show" do
   before(:each) do
     @vehicle = assign(:vehicle, stub_model(Vehicle,
       :make => "Make",
-      :v_type => "V Type",
+      :kind => "V Type",
       :year => "Year",
       :color => "Color"
     ))

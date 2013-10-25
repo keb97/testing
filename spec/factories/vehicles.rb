@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :vehicle do
     make "MyString"
-    v_type "MyString"
+    kind "MyString"
     year "MyString"
     color "MyString"
   end

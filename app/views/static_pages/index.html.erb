@@ -1,12 +1,16 @@
 <h1>User Home Page</h1>
 
 <% if user_signed_in? %>
-	Show User Profile
-	<%= simple_nested_form_for @user do |f| %>
+	<h3>Show User Profile for <%= @current_user.name %></h3>
+	<p><%= link_to "Manage Transactions", "transactions#index" %></p>
+	<%= simple_nested_form_for @user, url: registration_path(@user) do |f| %>
 		<%= f.error_notification %>
 			<%= f.fields_for :addresses do |builder| %>
 				<%= render 'addresses/address', f: builder %>
-			<% end %>	
+			<% end %>
+			<%= f.link_to_add "Add an address", :addresses %>
+			<%= f.button :submit %>
+			<%#= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
 	<% end %>	
 <% else %>
 	<div>
