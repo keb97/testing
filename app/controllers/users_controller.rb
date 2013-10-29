@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource only: [:edit, :update, :show]
+  before_action :set_user, only: [:show, :edit, :update]
+  load_and_authorize_resource only: [:show, :edit, :update]
   #Workaround for https://github.com/ryanb/cancan/issues/835
 
   # # GET /users/1
@@ -8,9 +8,10 @@ class UsersController < ApplicationController
   # def show
   # end
 
-  # # GET /users/1/edit
-  # def edit
-  # end
+  # GET /users/1/edit
+  def edit
+    #send to address somehow
+  end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
@@ -34,6 +35,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:addresses_attributes => [:kind, :street, :city, :state, :zip, :country])
+      params.require(:user).permit(:addresses_attributes => [:kind, :street, :city, :state, :zip, :country, :_destroy, :id])
     end
 end
