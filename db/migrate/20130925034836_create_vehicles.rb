@@ -5,7 +5,7 @@ class CreateVehicles < ActiveRecord::Migration
       t.string :kind
       t.string :year
       t.string :color
-      t.binary :image
+      t.attachment :image
 
       t.timestamps
     end

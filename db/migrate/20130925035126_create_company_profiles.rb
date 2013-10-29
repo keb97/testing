@@ -3,7 +3,7 @@ class CreateCompanyProfiles < ActiveRecord::Migration
     create_table :company_profiles do |t|
     	t.string		:name
       t.text			:description
-      t.binary		:photo
+      t.attachment		:photo
 
       t.timestamps
     end

@@ -50,7 +50,10 @@ ActiveRecord::Schema.define(version: 20131009190547) do
   create_table "company_profiles", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.binary   "photo"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -137,7 +140,10 @@ ActiveRecord::Schema.define(version: 20131009190547) do
     t.string   "kind"
     t.string   "year"
     t.string   "color"
-    t.binary   "image"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "company_profile_id"
