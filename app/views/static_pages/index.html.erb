@@ -5,22 +5,23 @@
 	<h4><%= @current_user.name %></h4>
 	<h4><%= @current_user.email %></h4>
 
-	<h4><%= current_user.addresses.each do |a| %>
-				<%= a.kind %>
-				<%= a.street %>
-				<%= a.city %>
-				<%= a.state %>
-				<%= a.zip %>
-				<%= a.country %>
+	<h4><%= @current_user.addresses.each do |address| %>
+				<%= address.kind %><br>
+				<%= address.street %><br>
+				<%= address.city %><br>
+				<%= address.state %><br>
+				<%= address.zip %><br>
+				<%= address.country %>
 			<% end %>
 	</h4>
 
 	
-	<%= simple_nested_form_for @user do |f| %>
+	<%= simple_nested_form_for @user, url: registration_path(@user) do |f| %>
 		<%= f.error_notification %>
 			<%= f.fields_for :addresses do |builder| %>
 				<%= render 'addresses/address', f: builder %>
 			<% end %>
+			<%= f.input :current_password %>
 			<%= f.link_to_add "Add an address", :addresses %>
 			<%= f.button :submit %>
 	<% end %>
