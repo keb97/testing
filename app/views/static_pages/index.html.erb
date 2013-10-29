@@ -5,13 +5,14 @@
 	<h4><%= @current_user.name %></h4>
 	<h4><%= @current_user.email %></h4>
 
-	<h4>
-	<%= simple_nested_form_for @user do |f| %>
-	<%= f.fields_for :addresses do |builder| %>
-	<%= render 'addresses/address', f: builder %>
-	<% end %>
-	<% end %>
-	</h4>
+	<h4><%= @current_user.addresses.each do |a| %>
+			<%= a.kind %>
+			<%= a.street %>
+			<%= a.city %>
+			<%= a.state %>
+			<%= a.zip %>
+			<%= a.country %>
+	<% end %></h4>
 
 	
 	<%= simple_nested_form_for @user do |f| %>
