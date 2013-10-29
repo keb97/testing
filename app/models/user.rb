@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 	has_many :locatables, :as => :owner
 	has_many :addresses, :through => :locatables, :dependent => :destroy
 	has_many :transactions
-	#has_many :company_profiles, :through => :transactions, :dependent => :destroy
+	#has_many :company_profiles, :through => :transactions
 
 	accepts_nested_attributes_for :addresses, allow_destroy: true
   # Include default devise modules. Others available are:

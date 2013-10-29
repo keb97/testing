@@ -18,12 +18,12 @@
   <tbody>
     <% @transactions.each do |transaction| %>
       <tr>
-        <td><%= transaction.PickupAddress %></td>
-        <td><%= transaction.DropoffAddress %></td>
-        <td><%= transaction.PickupDate %></td>
-        <td><%= transaction.PickupTime %></td>
-        <td><%= transaction.DropoffDate %></td>
-        <td><%= transaction.DropoffTime %></td>
+        <td><%= transaction.pickup_address %></td>
+        <td><%= transaction.dropoff_address %></td>
+        <td><%= transaction.pickup_date %></td>
+        <td><%= transaction.pickup_time %></td>
+        <td><%= transaction.dropoff_date %></td>
+        <td><%= transaction.dropoff_time %></td>
         <td><%= link_to 'Show', transaction %></td>
         <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
         <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>

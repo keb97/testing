@@ -92,12 +92,12 @@ ActiveRecord::Schema.define(version: 20131009190547) do
   add_index "locatables", ["owner_id", "owner_type"], name: "index_locatables_on_owner_id_and_owner_type", using: :btree
 
   create_table "transactions", force: true do |t|
-    t.string   "PickupAddress"
-    t.string   "DropoffAddress"
-    t.date     "PickupDate"
-    t.time     "PickupTime"
-    t.date     "DropoffDate"
-    t.time     "DropoffTime"
+    t.string   "pickup_address"
+    t.string   "dropoff_address"
+    t.date     "pickup_date"
+    t.time     "pickup_time"
+    t.date     "dropoff_date"
+    t.time     "dropoff_time"
     t.integer  "vehicle_id"
     t.integer  "user_id"
     t.integer  "company_profile_id"

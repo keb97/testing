@@ -7,11 +7,11 @@ class TransactionsController < ApplicationController
   # GET /transactions.json
   def index
     if current_user
-      @transactions = current_user.transactions.sort_by &:DropoffDate
+      @transactions = current_user.transactions.sort_by &:dropoff_date
     elsif current_company_user
-      @transactions = current_company_user.company_profile.transactions.sort_by &:DropoffDate
+      @transactions = current_company_user.company_profile.transactions.sort_by &:dropoff_date
     else 
-      @transactions = Transactions.all.sort_by &:DropoffDate
+      @transactions = Transactions.all.sort_by &:dropoff_date
     end
   end
 
@@ -77,6 +77,6 @@ class TransactionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transaction_params
-      params.require(:transaction).permit(:PickupAddress, :DropoffAddress, :PickupDate, :PickupTime, :DropoffDate, :DropoffTime, :user_id, :company_profile_id, :vehicle_id)
+      params.require(:transaction).permit(:pickup_address, :dropoff_address, :pickup_date, :pickup_time, :dropoff_date, :dropoff_time, :user_id, :company_profile_id, :vehicle_id)
     end
 end

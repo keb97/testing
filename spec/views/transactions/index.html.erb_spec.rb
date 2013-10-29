@@ -4,12 +4,12 @@ describe "transactions/index" do
   before(:each) do
     assign(:transactions, [
       stub_model(Transaction,
-        :PickupAddress => "Pickup Address",
-        :DropoffAddress => "Dropoff Address"
+        :pickup_address => "Pickup Address",
+        :dropoff_address => "Dropoff Address"
       ),
       stub_model(Transaction,
-        :PickupAddress => "Pickup Address",
-        :DropoffAddress => "Dropoff Address"
+        :pickup_address => "Pickup Address",
+        :dropoff_address => "Dropoff Address"
       )
     ])
   end

@@ -23,7 +23,7 @@ describe TransactionsController do
   # This should return the minimal set of attributes required to create a valid
   # Transaction. As you add validations to Transaction, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "PickupAddress" => "MyString" } }
+  let(:valid_attributes) { { "pickup_address" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe TransactionsController do
       it "assigns a newly created but unsaved transaction as @transaction" do
         # Trigger the behavior that occurs when invalid params are submitted
         Transaction.any_instance.stub(:save).and_return(false)
-        post :create, {:transaction => { "PickupAddress" => "invalid value" }}, valid_session
+        post :create, {:transaction => { "pickup_address" => "invalid value" }}, valid_session
         assigns(:transaction).should be_a_new(Transaction)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Transaction.any_instance.stub(:save).and_return(false)
-        post :create, {:transaction => { "PickupAddress" => "invalid value" }}, valid_session
+        post :create, {:transaction => { "pickup_address" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe TransactionsController do
         # specifies that the Transaction created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Transaction.any_instance.should_receive(:update).with({ "PickupAddress" => "MyString" })
-        put :update, {:id => transaction.to_param, :transaction => { "PickupAddress" => "MyString" }}, valid_session
+        Transaction.any_instance.should_receive(:update).with({ "pickup_address" => "MyString" })
+        put :update, {:id => transaction.to_param, :transaction => { "pickup_address" => "MyString" }}, valid_session
       end
 
       it "assigns the requested transaction as @transaction" do
@@ -128,7 +128,7 @@ describe TransactionsController do
         transaction = Transaction.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Transaction.any_instance.stub(:save).and_return(false)
-        put :update, {:id => transaction.to_param, :transaction => { "PickupAddress" => "invalid value" }}, valid_session
+        put :update, {:id => transaction.to_param, :transaction => { "pickup_address" => "invalid value" }}, valid_session
         assigns(:transaction).should eq(transaction)
       end
 
@@ -136,7 +136,7 @@ describe TransactionsController do
         transaction = Transaction.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Transaction.any_instance.stub(:save).and_return(false)
-        put :update, {:id => transaction.to_param, :transaction => { "PickupAddress" => "invalid value" }}, valid_session
+        put :update, {:id => transaction.to_param, :transaction => { "pickup_address" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

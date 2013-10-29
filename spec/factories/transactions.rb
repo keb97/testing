@@ -2,11 +2,11 @@
 
 FactoryGirl.define do
   factory :transaction do
-    PickupAddress "MyString"
-    DropoffAddress "MyString"
-    PickupDate "2013-10-08"
-    PickupTime "2013-10-08 14:51:06"
-    DropoffDate "2013-10-08"
-    DropoffTime "2013-10-08 14:51:06"
+    pickup_address "MyString"
+    dropoff_address "MyString"
+    pickup_date "2013-10-08"
+    pickup_time "2013-10-08 14:51:06"
+    dropoff_date "2013-10-08"
+    dropoff_time "2013-10-08 14:51:06"
   end
 end

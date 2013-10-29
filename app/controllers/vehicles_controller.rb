@@ -5,9 +5,15 @@ class VehiclesController < ApplicationController
 
   # GET /vehicles
   # # GET /vehicles.json
-  # def index
-  #   @vehicles = Vehicle.all
-  # end
+  def index
+    if current_user
+      @vehicles = current_user.vehicles.sort_by &:dropoff_date
+    elsif current_company_user
+      @vehicles = current_company_user.company_profile.vehicles.sort_by &:dropoff_date
+    else 
+      @vehicles = Transactions.all.sort_by &:dropoff_date
+    end
+  end
 
   # # GET /vehicles/1
   # # GET /vehicles/1.json
@@ -88,6 +94,6 @@ class VehiclesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_params
-      params.require(:vehicle).permit(:make, :kind, :year, :color, :image, :company_profile_id)
+      params.require(:vehicle).permit(:make, :kind, :year, :color, :image, :user_id, :company_profile_id, :vehicle_id)
     end
 end

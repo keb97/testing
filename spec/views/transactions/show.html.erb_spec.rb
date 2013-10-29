@@ -3,8 +3,8 @@ require 'spec_helper'
 describe "transactions/show" do
   before(:each) do
     @transaction = assign(:transaction, stub_model(Transaction,
-      :PickupAddress => "Pickup Address",
-      :DropoffAddress => "Dropoff Address"
+      :pickup_address => "Pickup Address",
+      :dropoff_address => "Dropoff Address"
     ))
   end
 
