@@ -1,5 +1,7 @@
 <%= simple_form_for(@company_profile) do |f| %>
   <%= f.error_notification %>
+  <%= f.full_error :image_file_size %>
+  <%= f.full_error :image_content_type %>
 
   <div class="inputs">
   	<%= f.input :name %>

@@ -8,10 +8,9 @@ class UsersController < ApplicationController
   # def show
   # end
 
-  # GET /users/1/edit
-  def edit
-    #send to address somehow
-  end
+  # # GET /users/1/edit
+  # def edit
+  # end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json

@@ -1,5 +1,7 @@
 <%= simple_form_for(@vehicle) do |f| %>
   <%= f.error_notification %>
+  <%= f.full_error :image_file_size %>
+  <%= f.full_error :image_content_type %>
 
   <% if company_user_signed_in? %>
     <%= f.hidden_field :company_profile_id, value: current_company_user.company_profile_id %>

@@ -17,7 +17,7 @@
       <tr>
         <td><%= company_profile.name %></td>
         <td><%= company_profile.description %></td>
-        <td><%= image_tag company_profile.photo %></td>
+        <td><%= image_tag company_profile.photo(:thumb) %></td>
         <td><%= link_to 'Show', company_profile %></td>
         <td><%= link_to 'Edit', edit_company_profile_path(company_profile) %></td>
         <td><%= link_to 'Destroy', company_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>

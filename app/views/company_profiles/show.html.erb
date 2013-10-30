@@ -12,7 +12,7 @@
 
 <p>
   <strong>Photo:</strong>
-  <%= @company_profile.photo %>
+  <%= image_tag @company_profile.photo(:medium) %>
 </p>
 
 <%= link_to 'Edit', edit_company_profile_path(@company_profile) %> |

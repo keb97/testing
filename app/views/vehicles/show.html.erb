@@ -27,7 +27,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @vehicle.image %>
+  <%= image_tag @vehicle.image(:medium) %>
 </p>
 
 <%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
