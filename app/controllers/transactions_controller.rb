@@ -11,7 +11,7 @@ class TransactionsController < ApplicationController
     elsif current_company_user
       @transactions = current_company_user.company_profile.transactions.sort_by &:dropoff_date
     else 
-      @transactions = Transactions.all.sort_by &:dropoff_date
+      @transactions = Transaction.all.sort_by &:dropoff_date
     end
   end
 

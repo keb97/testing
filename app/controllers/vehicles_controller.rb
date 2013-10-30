@@ -11,7 +11,7 @@ class VehiclesController < ApplicationController
     elsif current_company_user
       @vehicles = current_company_user.company_profile.vehicles.sort_by &:dropoff_date
     else 
-      @vehicles = Transactions.all.sort_by &:dropoff_date
+      @vehicles = Transaction.all.sort_by &:dropoff_date
     end
   end
 
