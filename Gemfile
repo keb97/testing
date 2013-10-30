@@ -15,6 +15,7 @@ gem 'zurb-foundation'
 gem 'paperclip', "~> 3.0"
 gem 'country_select'
 gem "nested_form"
+gem "geocoder"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
