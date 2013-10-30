@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pickup Address:</strong>
+  <%= @transaction.pickup_address %>
+</p>
+
+<p>
+  <strong>Dropoff Address:</strong>
+  <%= @transaction.dropoff_address %>
+</p>
+
+<p>
+  <strong>Pickup Date:</strong>
+  <%= @transaction.pickup_date %>
+</p>
+
+<p>
+  <strong>Pickup Time:</strong>
+  <%= @transaction.pickup_time %>
+</p>
+
+<p>
+  <strong>Dropoff Date:</strong>
+  <%= @transaction.dropoff_date %>
+</p>
+
+<p>
+  <strong>Dropoff Time:</strong>
+  <%= @transaction.dropoff_time %>
+</p>
+
+<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<%= link_to 'Back', transactions_path %>

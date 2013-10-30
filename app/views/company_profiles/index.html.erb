@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
       <th>Description</th>
       <th>Photo</th>
       <th></th>
@@ -14,8 +15,9 @@
   <tbody>
     <% @company_profiles.each do |company_profile| %>
       <tr>
+        <td><%= company_profile.name %></td>
         <td><%= company_profile.description %></td>
-        <td><%= company_profile.photo %></td>
+        <td><%= image_tag company_profile.photo(:thumb) %></td>
         <td><%= link_to 'Show', company_profile %></td>
         <td><%= link_to 'Edit', edit_company_profile_path(company_profile) %></td>
         <td><%= link_to 'Destroy', company_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,4 +28,5 @@
 
 <br>
 
-<%= link_to 'New Company profile', new_company_profile_path %>
+<p><%= link_to 'New Company profile', new_company_profile_path %></p>
+<%= link_to "Back", :back %>

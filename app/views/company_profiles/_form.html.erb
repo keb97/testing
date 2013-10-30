@@ -1,9 +1,12 @@
 <%= simple_form_for(@company_profile) do |f| %>
   <%= f.error_notification %>
+  <%= f.full_error :image_file_size %>
+  <%= f.full_error :image_content_type %>
 
   <div class="inputs">
+  	<%= f.input :name %>
     <%= f.input :description %>
-    <%= f.input :photo, :as => :string %>
+    <%= f.input :photo, label: "Upload a photo" %>
   </div>
 
   <div class="actions">

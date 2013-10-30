@@ -1,7 +1,27 @@
 <h1>User Home Page</h1>
 
 <% if user_signed_in? %>
-	Show User Profile
+	<h3>My Account</h3>
+	<h4>Profile <%= link_to "(Change)", edit_user_registration_path(@user) %></h4>
+		<%= @current_user.name %><br><br>
+		<%= @current_user.email %><br><br>
+		<%= @current_user.phone %>
+
+	<br><br>
+	<h4>Addresses	<%= link_to "(Change/Add an address)", edit_user_path(@user) %></h4>
+	<% @current_user.addresses.each do |address| %>
+		<%= address.kind %> Pick up Address<br>
+		<%= address.street %><br>
+		<%= address.city %><br>
+		<%= address.state %><br>
+		<%= address.zip %><br>
+		<%= address.country %><br><br>
+	<% end %>
+
+<br>
+<p></p>
+<p><%= link_to "Manage Transactions", "transactions#index" %></p>
+
 <% else %>
 	<div>
 			<h1><%= link_to "User Sign Up", new_user_registration_path %></h1>

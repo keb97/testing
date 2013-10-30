@@ -1,0 +1,38 @@
+<h1>Listing Transactions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pickup Address</th>
+      <th>Dropoff Address</th>
+      <th>Pickup Date</th>
+      <th>Pickup Time</th>
+      <th>Dropoff Date</th>
+      <th>Dropoff Time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.pickup_address %></td>
+        <td><%= transaction.dropoff_address %></td>
+        <td><%= transaction.pickup_date %></td>
+        <td><%= transaction.pickup_time %></td>
+        <td><%= transaction.dropoff_date %></td>
+        <td><%= transaction.dropoff_time %></td>
+        <td><%= link_to 'Show', transaction %></td>
+        <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
+        <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<p><%= link_to 'New Transaction', new_transaction_path %></p>
+<%= link_to "Back", :back %>

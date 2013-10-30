@@ -1,4 +1,11 @@
 Testing::Application.routes.draw do
+  resources :transactions
+  get "add_vehicle/:id",
+         :controller => "transactions",
+         :action => "add_vehicle"
+
+  #resources :addresses
+
   resources :company_profiles
 
   resources :vehicles
@@ -7,6 +14,8 @@ Testing::Application.routes.draw do
   devise_for :admins
   devise_for :company_users
   
+  resources :users, only: [:show, :edit, :update]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

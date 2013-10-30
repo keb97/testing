@@ -1,19 +1,21 @@
 <%= simple_form_for(@vehicle) do |f| %>
   <%= f.error_notification %>
+  <%= f.full_error :image_file_size %>
+  <%= f.full_error :image_content_type %>
 
   <% if company_user_signed_in? %>
     <%= f.hidden_field :company_profile_id, value: current_company_user.company_profile_id %>
   <% end %>
   <% if admin_signed_in? %>
-    <%= f.input :company_profile_id, :collection => CompanyProfile.find(:all), :label_method => :name,:value_method => :id,:label => "Company" ,:include_blank => false %>
+    <%= f.input :company_profile_id, :collection => CompanyProfile.all, :label_method => :name, :value_method => :id, :label => "Company" , :include_blank => false %>
   <% end %> 
 
   <div class="inputs">
     <%= f.input :make %>
-    <%= f.input :v_type, label: "Type" %>
+    <%= f.input :kind, label: "Type" %>
     <%= f.input :year %>
     <%= f.input :color %>
-    <%= f.input :image %>
+    <%= f.input :image, label: "Upload an image" %>
   </div>
 
   <div class="actions">

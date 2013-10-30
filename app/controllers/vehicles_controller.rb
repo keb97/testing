@@ -4,25 +4,31 @@ class VehiclesController < ApplicationController
     #https://github.com/ryanb/cancan/issues/835
 
   # GET /vehicles
-  # GET /vehicles.json
+  # # GET /vehicles.json
   def index
-    @vehicles = Vehicle.all
+    if current_user
+      @vehicles = current_user.vehicles.sort_by &:dropoff_date
+    elsif current_company_user
+      @vehicles = current_company_user.company_profile.vehicles.sort_by &:dropoff_date
+    else 
+      @vehicles = Transaction.all.sort_by &:dropoff_date
+    end
   end
 
-  # GET /vehicles/1
-  # GET /vehicles/1.json
-  def show
-    @vehicle = Vehicle.find(params[:id])
-  end
+  # # GET /vehicles/1
+  # # GET /vehicles/1.json
+  # def show
+  #   @vehicle = Vehicle.find(params[:id])
+  # end
 
-  # GET /vehicles/new
-  def new
-    @vehicle = Vehicle.new
-  end
+  # # GET /vehicles/new
+  # def new
+  #   #@vehicle = Vehicle.new
+  # end
 
-  # GET /vehicles/1/edit
-  def edit
-  end
+  # # GET /vehicles/1/edit
+  # def edit
+  # end
 
   # POST /vehicles
   # POST /vehicles.json
@@ -88,6 +94,6 @@ class VehiclesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_params
-      params.require(:vehicle).permit(:make, :v_type, :year, :color, :image, :company_profile_id)
+      params.require(:vehicle).permit(:make, :kind, :year, :color, :image, :user_id, :company_profile_id, :vehicle_id)
     end
 end
