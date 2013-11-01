@@ -24,9 +24,9 @@ class TransactionsController < ApplicationController
   #   @transaction = Transaction.new
   # end
 
-  # def add_vehicle
-  #   @transaction
-  # end
+  def add_vehicle
+    @transaction
+  end
 
   # # GET /transactions/1/edit
   # def edit

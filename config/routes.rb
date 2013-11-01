@@ -1,8 +1,8 @@
 Testing::Application.routes.draw do
   resources :transactions
-  # get "add_vehicle/:id",
-  #        :controller => "transactions",
-  #        :action => "add_vehicle"
+  get "add_vehicle/:id",
+         :controller => "transactions",
+         :action => "add_vehicle"
 
   #resources :addresses
 
@@ -10,9 +10,9 @@ Testing::Application.routes.draw do
 
   resources :vehicles
 
-  devise_for :users
-  devise_for :admins
-  devise_for :company_users
+  devise_for :users, :controllers => {:sessions => "sessions", :registrations => "registrations"}
+  devise_for :admins, :controllers => {:sessions => "sessions", :registrations => "registrations"}
+  devise_for :company_users, :controllers => {:sessions => "sessions", :registrations => "registrations"}
   
   resources :users, only: [:show, :edit, :update]
 

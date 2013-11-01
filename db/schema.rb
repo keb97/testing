@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 20131030152909) do
 
   add_index "transactions", ["company_profile_id"], name: "index_transactions_on_company_profile_id", using: :btree
   add_index "transactions", ["user_id"], name: "index_transactions_on_user_id", using: :btree
+  add_index "transactions", ["vehicle_id"], name: "index_transactions_on_vehicle_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name",                   default: "", null: false
