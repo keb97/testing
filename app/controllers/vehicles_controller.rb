@@ -7,11 +7,11 @@ class VehiclesController < ApplicationController
   # # GET /vehicles.json
   def index
     if current_user
-      @vehicles = current_user.vehicles.sort_by &:dropoff_date
+      @transactions = current_user.transactions
     elsif current_company_user
-      @vehicles = current_company_user.company_profile.transactions.sort_by &:dropoff_date
+      @vehicles = current_company_user.company_profile.vehicles
     else 
-      @vehicles = Transaction.all.sort_by &:dropoff_date
+      @vehicles = Vehicle.all
     end
   end
 

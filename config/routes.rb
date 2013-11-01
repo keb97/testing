@@ -1,8 +1,8 @@
 Testing::Application.routes.draw do
   resources :transactions
-  get "add_vehicle/:id",
-         :controller => "transactions",
-         :action => "add_vehicle"
+  # get "add_vehicle/:id",
+  #        :controller => "transactions",
+  #        :action => "add_vehicle"
 
   #resources :addresses
 

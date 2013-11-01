@@ -1,16 +1,15 @@
 class LocatablesController < ApplicationController
   before_action :set_locatable, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource except: [:create, :update]
+  
   #Workaround for https://github.com/ryanb/cancan/issues/835
+  load_and_authorize_resource except: [:create, :update]
 
-  # GET /locatables
-  # GET /locatables.json
+  # # GET /locatables
   # def index
   #   @locatable = Locatable.all
   # end
 
   # # GET /locatables/1
-  # # GET /locatables/1.json
   # def show
   # end
 
@@ -23,8 +22,7 @@ class LocatablesController < ApplicationController
   # def edit
   # end
 
-  # POST /locatables
-  # POST /locatables.json
+  # # POST /locatables
   def create
     @locatable = Locatable.new(locatable_params)
 
@@ -39,8 +37,7 @@ class LocatablesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /locatables/1
-  # PATCH/PUT /locatables/1.json
+  # # PATCH/PUT /locatables/1
   def update
     respond_to do |format|
       if @locatable.update(locatable_params)
@@ -53,8 +50,7 @@ class LocatablesController < ApplicationController
     end
   end
 
-  # DELETE /locatables/1
-  # DELETE /locatables/1.json
+  # # DELETE /locatables/1
   def destroy
     @locatable.destroy
     respond_to do |format|

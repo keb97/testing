@@ -1,28 +1,31 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource except: [:create, :update]
+  
   #Workaround for https://github.com/ryanb/cancan/issues/835
+  load_and_authorize_resource except: [:create, :update]
 
-  # GET /transactions
-  # GET /transactions.json
+  # # GET /transactions
   def index
     if current_user
-      @transactions = current_user.transactions.sort_by &:dropoff_date
+      @transaction = current_user.transactions.sort_by &:dropoff_date
     elsif current_company_user
-      @transactions = current_company_user.company_profile.transactions.sort_by &:dropoff_date
+      @transaction = current_company_user.company_profile.transactions.sort_by &:dropoff_date
     else 
-      @transactions = Transaction.all.sort_by &:dropoff_date
+      @transaction = Transaction.all.sort_by &:dropoff_date
     end
   end
 
   # # GET /transactions/1
-  # # GET /transactions/1.json
   # def show
   # end
 
   # # GET /transactions/new
   # def new
   #   @transaction = Transaction.new
+  # end
+
+  # def add_vehicle
+  #   @transaction
   # end
 
   # # GET /transactions/1/edit
