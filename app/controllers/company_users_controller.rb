@@ -19,14 +19,10 @@ class CompanyUsersController < ApplicationController
   # def show
   # end
 
-  # # GET /company_users/new
-  # def new
-  #   @transaction = Transaction.new
-  # end
-
-  # def add_vehicle
-  #   @transaction
-  # end
+  # GET /company_users/new
+  def new
+    @company_user = CompanyUser.new
+  end
 
   # # GET /company_users/1/edit
   # def edit

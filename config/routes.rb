@@ -15,6 +15,7 @@ Testing::Application.routes.draw do
   devise_for :company_users, :controllers => {:sessions => "sessions", :registrations => "registrations"}
   
   resources :users, only: [:show, :edit, :update]
+  resources :company_users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

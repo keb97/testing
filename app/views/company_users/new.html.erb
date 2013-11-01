@@ -1,0 +1,19 @@
+<h2>Add New Company User</h2>
+
+<%= simple_form_for @company_user do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs large-3 colunms">    
+    <%= f.input :company_profile_id, :collection => CompanyProfile.find(:all), :label_method => :name,:value_method => :id,:label => "Company" ,:include_blank => false %>
+    <%= f.input :name, :required => true, :autofocus => true, :required => true %>
+    <%= f.input :email, :required => true %>
+    <%= f.input :password, :required => true %>
+    <%= f.input :password_confirmation, :required => true %>
+  </div>
+
+  <div class="form-actions large-3 colunms">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+<% end %>
+
+<%= link_to "Back", :back %>
