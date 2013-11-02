@@ -41,15 +41,6 @@ class VehiclesController < ApplicationController
     else
       render :action => "new"
     end
-    # respond_to do |format|
-    #   if @vehicle.save
-    #     format.html { redirect_to @vehicle, notice: 'Vehicle was successfully created.' }
-    #     format.json { render action: 'show', status: :created, location: @vehicle }
-    #   else
-    #     format.html { render action: 'new' }
-    #     format.json { render json: @vehicle.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /vehicles/1
@@ -60,16 +51,7 @@ class VehiclesController < ApplicationController
       redirect_to @vehicle
     else
       render :action => "edit"
-    end  
-    # respond_to do |format|
-    #   if @vehicle.update(vehicle_params)
-    #     format.html { redirect_to @vehicle, notice: 'Vehicle was successfully updated.' }
-    #     format.json { head :no_content }
-    #   else
-    #     format.html { render action: 'edit' }
-    #     format.json { render json: @vehicle.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    end
   end
 
   # DELETE /vehicles/1

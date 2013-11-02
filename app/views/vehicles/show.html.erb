@@ -1,7 +1,9 @@
+<% if admin_signed_in? || user_signed_in? %>
 <p>
   <strong>Company:</strong>
-  <%= @company_profile %>
+  <%= vehicle.company_profile.name %>
 </p>
+<% end %>
 
 <p>
   <strong>Make:</strong>

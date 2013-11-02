@@ -14,16 +14,12 @@ class UsersController < ApplicationController
 
   # # PATCH/PUT /users/1
   def update
-    respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to '/', notice: 'Address updated.' }
-        format.json { head :no_content }
+        redirect_to '/', notice: 'Address updated.'
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
