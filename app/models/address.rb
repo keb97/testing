@@ -6,5 +6,5 @@ class Address < ActiveRecord::Base
 	    [street, city, state, zip, country].compact.join(', ') # => "street, city, state, zip, country"
   end
   geocoded_by :full_address
-  after_validation :geocode, :if => :address_changed?
+  after_validation :geocode, :if => :full_address_changed?
 end
