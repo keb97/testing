@@ -2,6 +2,7 @@
   <%= f.error_notification %>
 
   <div class="inputs">
+    <%= f.input :pickup_address, :collection => current_user.addresses, :label_method => :kind, :value_method => :id,:label => "Kind" ,:include_blank => false %>
     <%= f.input :pickup_address %>
     <%= f.input :dropoff_address %>
     <%= f.input :pickup_date %>

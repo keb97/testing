@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
-  load_and_authorize_resource only: [:show, :edit, :update]
+  
   #Workaround for https://github.com/ryanb/cancan/issues/835
+  load_and_authorize_resource only: [:show, :edit, :update]
 
   # # GET /users/1
-  # # GET /users/1.json
   # def show
   # end
 
@@ -12,19 +12,14 @@ class UsersController < ApplicationController
   # def edit
   # end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
+  # # PATCH/PUT /users/1
   def update
-    respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to '/', notice: 'Address updated.'
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -34,6 +29,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:addresses_attributes => [:kind, :street, :city, :state, :zip, :country, :_destroy, :id])
+      params.require(:user).permit(:addresses_attributes => [:kind, :street, :city, :state, :zip, :country, :_destroy, :id, :latitude, :longitude])
     end
 end

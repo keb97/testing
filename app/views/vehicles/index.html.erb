@@ -3,6 +3,9 @@
 <table>
   <thead>
     <tr>
+      <% if admin_signed_in? || user_signed_in? %>
+      <th>Company</th>
+      <% end %>
       <th>Make</th>
       <th>Type</th>
       <th>Year</th>
@@ -17,6 +20,9 @@
   <tbody>
     <% @vehicles.each do |vehicle| %>
       <tr>
+        <% if admin_signed_in? || user_signed_in? %>
+        <td><%= vehicle.company_profile.name %></td>
+        <% end %>
         <td><%= vehicle.make %></td>
         <td><%= vehicle.kind %></td>
         <td><%= vehicle.year %></td>
@@ -32,4 +38,5 @@
 
 <br>
 
-<%= link_to 'New Vehicle', new_vehicle_path %>
+<p><%= link_to 'New Vehicle', new_vehicle_path %></p>
+<%= link_to "Back", :back %>

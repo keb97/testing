@@ -7,7 +7,7 @@ class CreateTransactions < ActiveRecord::Migration
       t.time :pickup_time
       t.date :dropoff_date
       t.time :dropoff_time
-      t.references :vehicle
+      t.references :vehicle, index: true
       t.references :user, index: true
       t.references :company_profile, index: true
       

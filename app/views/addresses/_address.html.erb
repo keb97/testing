@@ -1,9 +1,9 @@
 <fieldset>
 	<%= f.input :kind %>
-	<%= f.input :street %>
-	<%= f.input :city %>
-	<%= f.input :state %>
-	<%= f.input :zip %>
-	<%= f.input :country, priority: [ "United States" ] %>
+	<%= f.input :street, :required=> true %>
+	<%= f.input :city, :required=> true %>
+	<%= f.input :state, :required=> true %>
+	<%= f.input :zip, :required=> true %>
+	<%= f.input :country, :required=> true, priority: [ "United States" ] %>
 	<%= f.link_to_remove "Remove an address" %>
 </fieldset>

@@ -10,11 +10,12 @@ Testing::Application.routes.draw do
 
   resources :vehicles
 
-  devise_for :users
-  devise_for :admins
-  devise_for :company_users
+  devise_for :users, :controllers => {:sessions => "sessions", :registrations => "registrations"}
+  devise_for :admins, :controllers => {:sessions => "sessions", :registrations => "registrations"}
+  devise_for :company_users, :controllers => {:sessions => "sessions", :registrations => "registrations"}
   
   resources :users, only: [:show, :edit, :update]
+  resources :company_users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

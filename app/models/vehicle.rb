@@ -1,6 +1,7 @@
 class Vehicle < ActiveRecord::Base
 	belongs_to :company_profile
 	has_many :transactions
+	has_many :users, :through => :transactions
 
 	has_attached_file :image, styles: { medium: "320x240>", thumb: "133x100>"}
 	validates_presence_of :make, :kind, :year, :color
