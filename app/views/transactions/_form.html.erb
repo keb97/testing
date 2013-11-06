@@ -2,9 +2,14 @@
   <%= f.error_notification %>
 
   <div class="inputs">
-    <%= f.input :pickup_address, :collection => current_user.addresses, :label_method => :kind, :value_method => :id,:label => "Kind" ,:include_blank => false %>
-    <%= f.input :pickup_address %>
-    <%= f.input :dropoff_address %>
+    <%= f.fields_for :locatables do |l| %>
+      <%= l.input :address_id, :collection => Address.all, :label_method => :kind, :value_method => :id, :label => "Pickup", :include_blank => false %>
+      <%= l.hidden_field :pickup, value: 'true' %>
+    <% end %>
+    <%= f.fields_for :locatables do |l| %>
+      <%= l.input :address_id, :collection => Address.all, :label_method => :kind, :value_method => :id, :label => "Dropoff", :include_blank => false %>
+      <%= l.hidden_field :pickup, value: 'false' %>
+    <% end %>
     <%= f.input :pickup_date %>
     <%= f.input :pickup_time %>
     <%= f.input :dropoff_date %>
