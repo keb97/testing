@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20131030152909) do
     t.datetime "updated_at"
   end
 
-  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
-  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
+  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
   create_table "company_profiles", force: true do |t|
     t.string   "name"
@@ -80,9 +80,9 @@ ActiveRecord::Schema.define(version: 20131030152909) do
     t.integer  "company_profile_id"
   end
 
-  add_index "company_users", ["company_profile_id"], name: "index_company_users_on_company_profile_id", using: :btree
-  add_index "company_users", ["email"], name: "index_company_users_on_email", unique: true, using: :btree
-  add_index "company_users", ["reset_password_token"], name: "index_company_users_on_reset_password_token", unique: true, using: :btree
+  add_index "company_users", ["company_profile_id"], name: "index_company_users_on_company_profile_id"
+  add_index "company_users", ["email"], name: "index_company_users_on_email", unique: true
+  add_index "company_users", ["reset_password_token"], name: "index_company_users_on_reset_password_token", unique: true
 
   create_table "locatables", force: true do |t|
     t.integer  "owner_id"
@@ -93,8 +93,8 @@ ActiveRecord::Schema.define(version: 20131030152909) do
     t.datetime "updated_at"
   end
 
-  add_index "locatables", ["address_id"], name: "index_locatables_on_address_id", using: :btree
-  add_index "locatables", ["owner_id", "owner_type"], name: "index_locatables_on_owner_id_and_owner_type", using: :btree
+  add_index "locatables", ["address_id"], name: "index_locatables_on_address_id"
+  add_index "locatables", ["owner_id", "owner_type"], name: "index_locatables_on_owner_id_and_owner_type"
 
   create_table "transactions", force: true do |t|
     t.string   "pickup_address"
@@ -110,9 +110,9 @@ ActiveRecord::Schema.define(version: 20131030152909) do
     t.datetime "updated_at"
   end
 
-  add_index "transactions", ["company_profile_id"], name: "index_transactions_on_company_profile_id", using: :btree
-  add_index "transactions", ["user_id"], name: "index_transactions_on_user_id", using: :btree
-  add_index "transactions", ["vehicle_id"], name: "index_transactions_on_vehicle_id", using: :btree
+  add_index "transactions", ["company_profile_id"], name: "index_transactions_on_company_profile_id"
+  add_index "transactions", ["user_id"], name: "index_transactions_on_user_id"
+  add_index "transactions", ["vehicle_id"], name: "index_transactions_on_vehicle_id"
 
   create_table "users", force: true do |t|
     t.string   "name",                   default: "", null: false
@@ -135,8 +135,8 @@ ActiveRecord::Schema.define(version: 20131030152909) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "vehicles", force: true do |t|
     t.string   "make"
@@ -152,6 +152,6 @@ ActiveRecord::Schema.define(version: 20131030152909) do
     t.integer  "company_profile_id"
   end
 
-  add_index "vehicles", ["company_profile_id"], name: "index_vehicles_on_company_profile_id", using: :btree
+  add_index "vehicles", ["company_profile_id"], name: "index_vehicles_on_company_profile_id"
 
 end

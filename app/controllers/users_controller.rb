@@ -9,8 +9,7 @@ class UsersController < ApplicationController
   # end
 
   # # GET /users/1/edit
-  # def edit
-  # end
+  
 
   # # PATCH/PUT /users/1
   def update
@@ -29,6 +28,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:addresses_attributes => [:street, :city, :state, :zip, :country, :_destroy, :id, :latitude, :longitude], :locatables_attributes => [:owner_type, :owner_id, :address_id, :kind])
+      params.require(:user).permit(:id, :locatables_attributes => [:id, :_destroy, :kind, :address_attributes => [:street, :city, :state, :zip, :country, :_destroy, :id, :latitude, :longitude]])
     end
 end
