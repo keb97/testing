@@ -1,6 +1,6 @@
 <%= simple_nested_form_for @user do |f| %>
 	<%= f.error_notification %>
-		<%= f.fields_for :addresses do |builder| %>
+		<%= f.fields_for :locatables do |builder| %>
 			<%= render 'addresses/address', f: builder %>
 		<% end %>
 		<p><%= f.link_to_add "Add an address", :addresses %>

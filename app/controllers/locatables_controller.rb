@@ -67,6 +67,6 @@ class LocatablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def locatable_params
-      params.require(:locatable).permit(:owner_type, :owner_id, :address_id)
+      params.require(:locatable).permit(:owner_type, :owner_id, :address_id, :kind)
     end
 end

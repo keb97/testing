@@ -29,6 +29,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:addresses_attributes => [:kind, :street, :city, :state, :zip, :country, :_destroy, :id, :latitude, :longitude])
+      params.require(:user).permit(:addresses_attributes => [:street, :city, :state, :zip, :country, :_destroy, :id, :latitude, :longitude], :locatables_attributes => [:owner_type, :owner_id, :address_id, :kind])
     end
 end

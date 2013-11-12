@@ -14,7 +14,6 @@
 ActiveRecord::Schema.define(version: 20131030152909) do
 
   create_table "addresses", force: true do |t|
-    t.string   "kind"
     t.string   "street"
     t.string   "city"
     t.string   "state"
@@ -89,6 +88,7 @@ ActiveRecord::Schema.define(version: 20131030152909) do
     t.integer  "owner_id"
     t.string   "owner_type"
     t.integer  "address_id"
+    t.string   "kind"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

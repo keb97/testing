@@ -82,6 +82,6 @@ class TransactionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def transaction_params
       params.require(:transaction).permit(:pickup_address, :dropoff_address, :pickup_date, :pickup_time, :dropoff_date, :dropoff_time,
-                     :user_id, :company_profile_id, :vehicle_id, :locatables_attributes => [:address_id, :pickup, :transaction_id])
+                     :user_id, :company_profile_id, :vehicle_id, :locatables_attributes => [:address_id, :pickup, :transaction_id, :kind])
     end
 end
